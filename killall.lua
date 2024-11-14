@@ -91,7 +91,7 @@ RunService.Heartbeat:Connect(function()
         local targetPlayer = getClosestPlayerNotOnNeutralOrSameTeam()
 
         if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
-            local targetPosition = targetPlayer.Character.HumanoidRootPart.Position + Vector3.new(0, -10, 0)
+            local targetPosition = targetPlayer.Character.HumanoidRootPart.Position + Vector3.new(0, -12, 0)
             if localCharacter and localCharacter:FindFirstChild("HumanoidRootPart") then
                 localCharacter.HumanoidRootPart.CFrame = CFrame.new(targetPosition)
             end
