@@ -62,6 +62,13 @@ local function checkToolExists(toolName)
     end
 end
 
+local function onCharacterAdded(character)
+    wait(1)
+    checkToolExists("Sword")
+end
+
+localPlayer.CharacterAdded:Connect(onCharacterAdded)
+
 UserInputService.InputBegan:Connect(function(input, gameProcessed)
     if not gameProcessed and input.KeyCode == Enum.KeyCode.Nine then
         toggle = not toggle
@@ -70,9 +77,6 @@ end)
 
 RunService.Heartbeat:Connect(function()
     if toggle then
-        checkToolExists("Sword")
-        equipToolByName("Sword")
-
         local localCharacter = localPlayer.Character
         if localCharacter and localCharacter:FindFirstChild("Humanoid") then
             local humanoid = localCharacter:FindFirstChild("Humanoid")
@@ -82,6 +86,8 @@ RunService.Heartbeat:Connect(function()
             end
         end
 
+        equipToolByName("Sword")
+        
         local targetPlayer = getClosestPlayerNotOnNeutralOrSameTeam()
 
         if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
