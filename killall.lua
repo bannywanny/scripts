@@ -4,6 +4,8 @@ local UserInputService = game:GetService("UserInputService")
 
 local localPlayer = Players.LocalPlayer
 local toggle = true
+local toolMissingTime = 0
+local toolName = "Sword"
 
 local function getClosestPlayerNotOnNeutralOrSameTeam()
     local closestPlayer = nil
@@ -54,17 +56,22 @@ local function checkToolExists(toolName)
         local toolInCharacter = character:FindFirstChild(toolName)
 
         if not toolInBackpack and not toolInCharacter then
-            local humanoid = character:FindFirstChild("Humanoid")
-            if humanoid then
-                humanoid.Health = 0
+            toolMissingTime = toolMissingTime + RunService.Heartbeat:Wait()
+            if toolMissingTime >= 5 then
+                local humanoid = character:FindFirstChild("Humanoid")
+                if humanoid then
+                    humanoid.Health = 0
+                end
             end
+        else
+            toolMissingTime = 0
         end
     end
 end
 
 local function onCharacterAdded(character)
     wait(1)
-    checkToolExists("Sword")
+    checkToolExists(toolName)
 end
 
 localPlayer.CharacterAdded:Connect(onCharacterAdded)
@@ -86,7 +93,8 @@ RunService.Heartbeat:Connect(function()
             end
         end
 
-        equipToolByName("Sword")
+        checkToolExists(toolName)
+        equipToolByName(toolName)
         
         local targetPlayer = getClosestPlayerNotOnNeutralOrSameTeam()
 
