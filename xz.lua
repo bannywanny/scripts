@@ -1,5 +1,5 @@
 getgenv().Circle = {
-    ["Size"] = 65,
+    ["Size"] = 650,
     ["Enabled"] = true,
     ["Random FTI"] = false,
     ["Whitelisted Limbs"] = {"Left Arm","Right Arm","Left Leg","Right Leg","Head","Torso","HumanoidRootPart"}
