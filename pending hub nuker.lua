@@ -21,5 +21,5 @@ while true do
         TeleportService:TeleportToPlaceInstance(PlaceId, JobId, player)
     end
     
-    wait(0.5)
+    wait(0.1)
 end
