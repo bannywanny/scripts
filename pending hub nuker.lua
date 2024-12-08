@@ -5,7 +5,7 @@ ratelimits their webhook after a while meaning noone can join the event W
 --]]
 
 
-local Players = game:GetService("Players")
+--[[local Players = game:GetService("Players")
 local TeleportService = game:GetService("TeleportService")
 local PlaceId = game.PlaceId
 local JobId = game.JobId
@@ -21,5 +21,5 @@ while true do
         TeleportService:TeleportToPlaceInstance(PlaceId, JobId, player)
     end
     
-    wait(0.1)
-end
+    wait(0.5)
+end--]]
