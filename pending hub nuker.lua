@@ -6,7 +6,7 @@ press q to stop rejoining
 --]]
 
 
-local Players = game:GetService("Players")
+--[[local Players = game:GetService("Players")
 local TeleportService = game:GetService("TeleportService")
 local UserInputService = game:GetService("UserInputService")
 local PlaceId = game.PlaceId
@@ -37,4 +37,4 @@ while true do
     end
     
     wait(0.5)
-end
+end--]]
